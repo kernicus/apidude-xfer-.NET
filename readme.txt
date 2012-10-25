@@ -51,7 +51,8 @@ xFer.createQuery(packagename, queryName, queryType, queryText, paramaters)
 -- Name of Query - for reference
 -- QUeryType - SP for Stored Procedure, T - For Text.
 -- QueryText - Name of Stored Procedure or SQL query. For mongo - if this is being used as a select statement put your query in the form of a find command. 
--- Paramaters - This is for passing set input paramaters in the value of a JSON array of string value pairs. [ { "inputParam" : "valueOfParam" }]
+-- Paramaters - For source queries (MySql, MSSQL only), this is for passing set input paramaters in the value of a JSON array of string value pairs. [ { "Name" : "NameOfParm", "Value" : "ValueOfParam" }] , for destination queries - this is used for limiting the input fields to use returned by your source. [ { "Name" : "NameOfColumnToMatch", "Value" : 1 }]
+
 
 MONGODB select EXAMPLE:
 { $Query : { bookmarkname: \"google\" , bookmarkid : { $gt : 20}}, $Field : { bookmarkUrl : true }, $Sort : { bookmarkname : 0 }, $Limit : { 10 }}
