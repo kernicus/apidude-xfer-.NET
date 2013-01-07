@@ -30,13 +30,13 @@ namespace apidude_xFer
             //CHECK TO SEE IF ARGS ARE NULL OR NOT
             string path = "C:\\xFer\\";
             xFerCommands xComm = new xFerCommands(path);
-            bool crap = true;
+            bool continueRunning = true;
 
             if (args != null)
             {
                 if (args.Length > 0)
                 {
-                    crap = false;
+                    continueRunning = false;
                     string packageName = string.Empty;
                     string xFerName = string.Empty;
                     string xFerParams = string.Empty;
@@ -88,7 +88,7 @@ namespace apidude_xFer
                 }
             }
 
-            if (crap)
+            if (continueRunning)
             {
                 Console.WriteLine("*******************************************************");
                 Console.WriteLine("***********Welcome to the apidude-xFer shell***********");
@@ -99,14 +99,14 @@ namespace apidude_xFer
                 Console.WriteLine("*******************************************************");
             }
 
-            while (crap)
+            while (continueRunning)
             {
                 string r = Console.ReadLine();
 
                 if (r == "exit")
                 {
                     Console.WriteLine("exiting");
-                    crap = false;
+                    continueRunning = false;
                 }
                 else if (r.StartsWith("xFer."))
                 {
@@ -122,7 +122,7 @@ namespace apidude_xFer
                 switch (r.ToLower())
                 {
                     case "exit":
-                        crap = false;
+                        continueRunning = false;
                         Console.WriteLine("exiting");
                         break;
                     case "db":
